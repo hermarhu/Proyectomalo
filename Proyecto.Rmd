@@ -1,6 +1,6 @@
 ---
 title: "TD_2023"
-author: "Hugo Hernández Marco"
+author: "Hugo Hernández Marco, Marcos Tudela Guerra, Álvaro Zamarreño Ribes, Sergio Cabral Martínez y Jade Juliana Justiniano Dávila"
 date: "2023-04-25"
 output: html_document
 ---
