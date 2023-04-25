@@ -1,6 +1,6 @@
 ---
 title: "Proyecto TD 2023"
-author: "Hugo Hernández Marco, Marcos Tudela Guerra, Álvaro Zamarreño Ribes, Sergio Cabral Martínez y Jade Juliana Justiniano Dávila"
+author: "Marcos Tudela Guerra, Hugo Hernandez Marco, Álvaro Zamarreño Ribes, Sergio Cabral Martínez y Jade Juliana Justiniano Dávila."
 date: "2023-04-25"
 output: html_document
 ---
@@ -14,6 +14,9 @@ library(dplyr)
 #Primero voy a poner el codigo para leer el código binario de las carpetas en cada caso:
 # Create a connection object to read the file in binary mode using "rb".
 cabecera_FicheroAnalogico <- file("data/0519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroAnalogico.dat", "rb")
+
+
+
 
 # First read the column names. n = 3 as we have 3 columns.
 column.names <- readBin(cabecera_FicheroAnalogico, character(),  n = 3)
