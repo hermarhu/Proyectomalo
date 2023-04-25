@@ -1,7 +1,44 @@
 ---
-title: "TD_2023"
+title: "Proyecto TD 2023"
 author: "Hugo Hernández Marco, Marcos Tudela Guerra, Álvaro Zamarreño Ribes, Sergio Cabral Martínez y Jade Juliana Justiniano Dávila"
 date: "2023-04-25"
 output: html_document
 ---
 
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+
+#Primero voy a poner el codigo para leer el código binario de las carpetas en cada caso:
+# Create a connection object to read the file in binary mode using "rb".
+cabecera_FicheroAnalogico <- file("/data/data/519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroAnalogico.dat", "rb")
+
+# First read the column names. n = 3 as we have 3 columns.
+column.names <- readBin(cabecera_FicheroAnalogico, character(),  n = 3)
+
+# Next read the column values. n = 18 as we have 3 column names and 15 values.
+read.filename <- file("\data\data\0519xxxiii14\06_02_2023\14.20.34\cabecera_FicheroAnalógico.dat", "wb")
+bindata <- readBin(read.filename, integer(),  n = 18)
+
+# Print the data.
+print(bindata)
+
+# Read the values from 4th byte to 8th byte which represents "cyl".
+cyldata = bindata[4:8]
+print(cyldata)
+
+# Read the values form 9th byte to 13th byte which represents "am".
+amdata = bindata[9:13]
+print(amdata)
+
+# Read the values form 9th byte to 13th byte which represents "gear".
+geardata = bindata[14:18]
+print(geardata)
+
+# Combine all the read values to a dat frame.
+finaldata = cbind(cyldata, amdata, geardata)
+colnames(finaldata) = column.names
+print(finaldata)
+```
